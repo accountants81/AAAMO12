@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap');
+
+:root {
+  --primary-color: #2E8B57;
+  --secondary-color: #3CB371;
+  --dark-color: #111;
+  --light-color: #f5f5f5;
+  --text-color: #333;
+  --white: #fff;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Tajawal', sans-serif;
+  background-color: #000;
+  color: var(--white);
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* Utilities and common styles */
+.category {
+  @apply my-12 p-8 bg-[#222] rounded-lg transition-all duration-300 relative overflow-hidden border-r-4 border-r-[#2E8B57] shadow-lg hover:shadow-xl;
+}
+
+.category:hover {
+  @apply transform -translate-y-1;
+}
+
+.category::before {
+  content: '';
+  @apply absolute top-0 right-0 w-full h-1 bg-gradient-to-l from-[#2E8B57] to-[#3CB371];
+}
+
+.category h2 {
+  @apply text-3xl md:text-4xl font-bold text-[#3CB371] mb-8 relative inline-block;
+}
+
+.category h2::after {
+  content: '';
+  @apply absolute bottom-[-12px] left-0 w-full h-[3px] bg-[#2E8B57];
+}
+
+.counter {
+  @apply flex items-center justify-center my-8 gap-6;
+}
+
+.counter button {
+  @apply bg-[#2E8B57] text-white border-none py-3 px-6 text-xl cursor-pointer rounded-md transition-all duration-300 min-w-[50px] hover:bg-[#3CB371] hover:shadow-lg active:scale-95;
+}
+
+.counter span {
+  @apply text-2xl font-bold min-w-[60px] inline-block bg-[rgba(46,139,87,0.1)] py-2 px-4 rounded-lg;
+}
+
+.times {
+  @apply text-[#3CB371] font-bold text-xl bg-[rgba(46,139,87,0.1)] py-1 px-3 rounded-md inline-block mr-2;
+}
+
+.completion-notification {
+  @apply fixed bottom-8 right-8 bg-[#2E8B57] text-white p-6 rounded-lg text-xl font-bold transform scale-125 shadow-2xl z-50;
+  animation: notificationFadeInOut 3s forwards;
+}
+
+@keyframes notificationFadeInOut {
+  0% { opacity: 0; transform: scale(0.8) translateY(20px); }
+  10% { opacity: 1; transform: scale(1.25) translateY(0); }
+  90% { opacity: 1; transform: scale(1.25) translateY(0); }
+  100% { opacity: 0; transform: scale(0.8) translateY(20px); }
+}
+
+/* Enhanced styling for prayer text */
+.prayer-text {
+  @apply text-lg md:text-xl leading-relaxed text-right mb-6 p-4 bg-[rgba(46,139,87,0.05)] rounded-lg border-r-2 border-r-[#2E8B57] transition-all duration-300;
+}
+
+.prayer-text:hover {
+  @apply bg-[rgba(46,139,87,0.1)] transform -translate-y-1;
+}
+
+/* Improved button styles */
+.action-button {
+  @apply bg-[#2E8B57] text-white border-none py-4 px-8 text-xl rounded-lg transition-all duration-300 hover:bg-[#3CB371] hover:shadow-lg active:scale-95 font-medium;
+}
+
+/* Enhanced section headers */
+.section-header {
+  @apply text-4xl md:text-5xl font-bold text-[#3CB371] mb-12 relative inline-block;
+}
+
+.section-header::after {
+  content: '';
+  @apply absolute bottom-[-16px] left-0 w-full h-[4px] bg-gradient-to-r from-[#2E8B57] to-[#3CB371];
+}
